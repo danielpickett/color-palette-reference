@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Color Pallet</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,900" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="page-wrapper">
+
+      <div class="color-group-container">
+
+        <div class="color-group">
+          <div class="color-swatch">
+            <span class="color-hex">#2A91D4</span>
+            <span class="description">:hover</span>
+          </div>
+          <div class="color-swatch main">
+            <span class="color-hex">#1986C7</span>
+            <span class="description highlight">Brand Color: Primary</span></div>
+          <div class="color-swatch">
+            <span class="color-hex">#177CB8</span>
+            <span class="description">:active</span>
+          </div>
+        </div>
+        
+        <div class="color-group">
+          <div class="color-swatch">
+            <span class="color-hex">#26BEC1</span>
+            <span class="description">:hover</span>
+          </div>
+          <div class="color-swatch main">
+            <span class="color-hex">#00B3B6</span>
+            <span class="description highlight">Brand Color: Secondary</span>
+          </div>
+          <div class="color-swatch">
+            <span class="color-hex">#00A2A5</span>
+            <span class="description">:active</span>
+          </div>
+        </div>
+
+        <div class="color-group">
+          <div class="color-swatch">
+            <span class="color-hex">#7BC971</span>
+            <span class="description">:hover</span>
+          </div>
+          <div class="color-swatch main">
+            <span class="color-hex">#70BF66</span>
+            <span class="description highlight">Brand Color: Tertiary</span>
+          </div>
+          <div class="color-swatch">
+            <span class="color-hex">#5AB54E</span>
+            <span class="description">:active</span>
+          </div>
+        </div>
+
+        <div class="color-group">
+          <div class="color-swatch">
+            <span class="color-hex">#0f4d73</span>
+            <span class="description">:hover</span>
+          </div>
+          <div class="color-swatch">
+            <span class="color-hex">#0D4364</span>
+            <span class="description">Dark Backgrounds</span>
+          </div>
+          <div class="color-swatch">
+            <span class="color-hex">#0b3955</span>
+            <span class="description">:active</span>
+          </div>
+        </div>
+
+        <div class="color-group">
+          <div class="color-swatch light">
+            <span class="color-hex">#F5F8FA</span>
+            <span class="description highlight">Off-white backgrounds</span>
+          </div>
+          <div class="color-swatch light">
+            <span class="color-hex">#E9EEF1</span>
+            <span class="description highlight">"Card" backgrounds</span>
+          </div>
+          <div class="color-swatch light">
+            <span class="color-hex">#DBE2E6</span>
+            <span class="description"></span>
+          </div>
+          <div class="color-swatch light">
+            <span class="color-hex">#CCD5DA</span>
+            <span class="description"></span>
+          </div>
+          <div class="color-swatch light">
+            <span class="color-hex">#BCC7CD</span>
+            <span class="description"></span>
+          </div>
+          <div class="color-swatch light">
+            <span class="color-hex">#ACB8BF</span>
+            <span class="description"></span>
+          </div>
+          <div class="color-swatch">
+            <span class="color-hex">#9BA8B0</span>
+            <span class="description"></span>
+          </div>
+          <div class="color-swatch">
+            <span class="color-hex">#88979F</span>
+            <span class="description"></span>
+          </div>
+          <div class="color-swatch">
+            <span class="color-hex">#65747D</span>
+            <span class="description"></span>
+          </div>
+          <div class="color-swatch">
+            <span class="color-hex">#53626A</span>
+            <span class="description highlight">Most text</span>
+          </div>
+          <div class="color-swatch">
+            <span class="color-hex">#424F57</span>
+            <span class="description"></span>
+          </div>
+          <div class="color-swatch">
+            <span class="color-hex">#313D44</span>
+            <span class="description highlight">Headings</span>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+    
+    <script>
+      let colorSwatches = document.querySelectorAll('.color-swatch .color-hex');
+
+      for (let i = 0; i < colorSwatches.length; i++) {
+        let swatch = colorSwatches[i];
+        swatch.addEventListener('click', function() {
+          copyInnerText(swatch)
+        });
+        swatch.style.backgroundColor = swatch.innerText;
+      }
+
+      function copyInnerText(_this) {
+        navigator.clipboard.writeText(_this.innerText)
+          .then(() => {
+            console.log(_this.innerText + ' copied to clipboard');
+          })
+          .catch(err => {
+            // This can happen if the user denies clipboard permissions:
+            console.error('Could not copy to clipboard: ', err);
+          });
+          _this.classList.add('clicked');
+          setTimeout(
+            function(){ 
+              _this.classList.remove('clicked');
+            }, 1000
+          );
+      }
+    </script>
+  </body>
+</html>

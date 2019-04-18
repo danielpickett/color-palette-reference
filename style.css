@@ -1,0 +1,103 @@
+.page-wrapper {
+  max-width: 640px;
+  padding: 0 30px;
+  margin: 0 auto;
+  color: #475459;
+  font-family: Roboto, sans-serif;
+}
+
+
+/* COLORS */
+.color-group-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 10px;
+  color: rgba(255,255,255,.8);
+  padding: 10px;
+  background-color: #E9EFF2;
+  border-radius: 10px;
+}
+
+.color-group {
+  margin: 10px;
+  /* border: 3px solid white; */
+  border-radius: 10px; 
+  overflow: hidden;
+  background-color: white;
+}
+.color-swatch {
+  display: flex;
+  position: relative;
+}
+.color-swatch::after {
+  content: "";
+  display: block;
+  background-color: #E9EFF2;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+
+}
+
+.color-swatch .color-hex {
+  text-transform: uppercase;
+  width: 30%;
+  text-align: right;
+  padding: 5px;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.color-swatch .description {
+  display: inline-block;
+  padding: 5px;
+  width: 70%;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: white;
+  font-weight: 300;
+  color: #8C9AA3;
+  font-style: italic
+}
+.color-swatch .description.highlight {
+  color: #334047;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.color-swatch.light .color-hex {
+  color: #455965;
+}
+
+.color-swatch .color-hex:hover::before {
+  content: "click to copy";
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 5px;
+}
+
+.color-swatch.main .color-hex {
+  height: 50px;
+}
+
+.color-swatch .color-hex.clicked::before {
+  content: "copied";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  padding: 0px 5px;
+  text-align: center;
+  width: 61px;
+  background-color: white;
+  border-radius: 1000px;
+  color: #455965;
+}
+
+/* /COLORS */
